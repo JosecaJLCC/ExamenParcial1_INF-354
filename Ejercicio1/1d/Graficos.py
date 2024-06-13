@@ -12,19 +12,48 @@ import pandas as pd
 fig, ax = plt.subplots()
 
 
-datos = pd.read_csv("cellphonesdata.csv", sep=",")
+datos = pd.read_csv("mobile_phone_rating_rmv.csv", sep=",")
 
+miDataSet = open("mobile_phone_rating_rmv.csv", "r")
 
-miDataSet = open("cellphonesdata.csv", "r")
 res=miDataSet.read();
-array=res.split('\n');
-array2=array[0].split(",")
-fruits=[]
-for i in range(4,12):
-    fruits.append(array2[i])
+precio=[]
+lanza=[]
+camara=[]
+selfie=[]
+audio=[]
+display=[]
+bateria=[]
 
-print(fruits)
-fruits = ['apple', 'blueberry', 'cherry', 'orange']
+array=res.split("\n")
+for i in range (1, len(array)-2):
+    x=array[i].split(",")
+    precio.append(x[1])
+    lanza.append(x[2])
+    camara.append(x[3])
+    selfie.append(x[4])
+    audio.append(x[5])
+    display.append(x[6])
+    bateria.append(x[7])
+    
+sprecio=set(precio)
+slanza=set(lanza)
+scamara=set(camara)
+sselfie=set(selfie)
+saudio=set(audio)
+sdisplay=set(display)
+sbateria=set(bateria)
+
+print(sprecio, "\n")
+print(slanza, "\n")
+print(scamara, "\n")
+print(sselfie, "\n")
+print(saudio, "\n")
+print(sdisplay, "\n")
+print(sbateria, "\n")
+
+
+"""fruits = ['apple', 'blueberry', 'cherry', 'orange']
 counts = [40, 100, 30, 55]
 bar_labels = ['red', 'blue', '_red', 'orange']
 bar_colors = ['tab:red', 'tab:blue', 'tab:red', 'tab:orange']
@@ -35,4 +64,4 @@ ax.set_ylabel('fruit supply')
 ax.set_title('Fruit supply by kind and color')
 ax.legend(title='Fruit color')
 
-plt.show()
+plt.show()"""

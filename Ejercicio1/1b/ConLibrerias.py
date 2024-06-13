@@ -1,58 +1,26 @@
 # -*- coding: utf-8 -*-
 """
-Created on Mon May 20 09:46:37 2024
-
 @author: joswe
 """
 
 import numpy as np
 import pandas as pd
-datos = pd.read_csv("cellphonesdata.csv", sep=",")
+datos = pd.read_csv("mobile_phone_rating_rmv.csv", sep=",")
 
 print("*************************PERCENTIL*************************")
-print("Percentil 80 de la Memoria interna: ", np.percentile(datos["internal memory"], 80))
-print("Percentil 80 de la RAM: ", np.percentile(datos["RAM"], 80))
-print("Percentil 80 del performance: ",np.percentile(datos["performance"], 80))
-print("Percentil 80 de la camara principal: ",np.percentile(datos["main camera"], 80))
-print("Percentil 80 de la camara frontal: ",np.percentile(datos["selfie camera"], 80))
-print("Percentil 80 del tamaño de la bateria: ",np.percentile(datos["battery size"], 80))
-print("Percentil 80 del tamaño de la pantalla: ",np.percentile(datos["screen size"], 80))
-print("Percentil 80 del peso: ",np.percentile(datos["weight"], 80))
-print("Percentil 80 del precio: ",np.percentile(datos["price"], 80),"\n")
+print("Percentil 80: Este valor representa el punto debajo del cual se encuentra el 80% de los datos. Proporciona una medida similar al Q3, pero con un umbral ligeramente superior. Es útil para tener una idea más precisa de cómo se distribuyen los datos en el extremo superior.")
+print("Percentil 80 de la camara: ", np.percentile(datos["camera"], 80))
+print("Percentil 80 de selfie: ", np.percentile(datos["selfie"], 80))
+print("Percentil 80 del audio: ", np.percentile(datos["audio"], 80))
+print("Percentil 80 del display: ",np.percentile(datos["display"], 80))
+print("Percentil 80 de la bateria: ",np.percentile(datos["battery"], 80),"\n")
+
 
 print("*************************CUARTIL*************************")
-print("Ultimo cuartil de la Memoria interna: ", np.quantile(datos["internal memory"], 0.75))
-print("Ultimo cuartil de la RAM: ", np.quantile(datos["RAM"], 0.75))
-print("Ultimo cuartil del performance: ",np.quantile(datos["performance"], 0.75))
-print("Ultimo cuartil de la camara principal: ",np.quantile(datos["main camera"], 0.75))
-print("Ultimo cuartil de la camara frontal: ",np.quantile(datos["selfie camera"], 0.75))
-print("Ultimo cuartil del tamaño de la bateria: ",np.quantile(datos["battery size"], 0.75))
-print("Ultimo cuartil del tamaño de la pantalla: ",np.quantile(datos["screen size"], 0.75))
-print("Ultimo cuartil del peso: ",np.quantile(datos["weight"], 0.75))
-print("Ultimo cuartil del precio: ",np.quantile(datos["price"], 0.75),"\n")
+print("Cuartil 3 (Q3 o percentil 75) Este valor representa el punto debajo del cual se encuentra el 75% de los datos. Es útil para entender la dispersión de la mayoría de los datos y detectar valores atípicos en la parte superior del conjunto de datos.\n")
+print("Ultimo cuartil de la camara: ", np.quantile(datos["camera"], 0.75))
+print("Ultimo cuartil de selfie: ", np.quantile(datos["selfie"], 0.75))
+print("Ultimo cuartil del audio: ",np.quantile(datos["audio"], 0.75))
+print("Ultimo cuartil del display: ",np.quantile(datos["display"], 0.75))
+print("Ultimo cuartil de la bateria: ",np.quantile(datos["battery"], 0.75), "\n")
 
-print("El último cuartil, o tercer cuartil (Q3), es el valor por debajo del cual se encuentra el 75% de los datos. En otras palabras, es el percentil 75.\n")
-print("El percentil 80 es el valor por debajo del cual se encuentra el 80% de los datos.")
-
-"""
-*************************PERCENTIL*************************
-204.8
-8.0
-8.49
-50.0
-27.2
-5000.0
-6.7
-213.0
-888.2
-*************************CUARTIL*************************
-128.0
-8.0
-7.94
-50.0
-16.0
-5000.0
-6.7
-207.0
-840.0
-"""
